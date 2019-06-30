@@ -8,8 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 
 import com.example.android.trackmysleepquality.R
+import com.example.android.trackmysleepquality.database.MyfileDatabase
+import com.example.android.trackmysleepquality.databinding.FragmentMyfileTrackerBinding
 import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerBinding
 
 class MyfileTrackerFragment : Fragment() {
@@ -23,8 +26,19 @@ class MyfileTrackerFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Get a reference to the binding object and inflate the fragment views.
-        val binding: FragmentSleepTrackerBinding = DataBindingUtil.inflate(
+        val binding: FragmentMyfileTrackerBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_myfile_tracker, container, false)
+        val application=requireNotNull(this.activity).application
+
+        val dataSource=MyfileDatabase.getInstance(application).myfileDatabaseDao
+
+        val viewModelFactory=MyfileTrackerViewModelFactory(dataSource,application)
+
+        val myfileTrackerViewModel=
+                ViewModelProviders.of(
+                        this,viewModelFactory).get(MyfileTrackerViewModel::class.java)
+        binding.myfileTrackerViewModel = myfileTrackerViewModel
+        binding.setLifecycleOwner(this)
 
         return binding.root
     }
