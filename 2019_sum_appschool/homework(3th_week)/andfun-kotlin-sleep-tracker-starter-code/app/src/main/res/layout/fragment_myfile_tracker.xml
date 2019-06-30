@@ -67,18 +67,18 @@ xmlns:tools="http://schemas.android.com/tools">
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <TextView
+        <EditText
             android:id="@+id/textView5"
             style="@style/textBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/sheldonlin"
+            android:text="@{myfileTrackerViewModel.database.newprofile.nameEdit}"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/textView6"
             style="@style/textBox"
             android:layout_width="wrap_content"
@@ -86,7 +86,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:layout_marginTop="16dp"
             android:layout_marginEnd="60dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/sheldoor"
+            android:text="@{myfileTrackerViewModel.database.newprofile.nicknameEdit}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -104,6 +104,7 @@ xmlns:tools="http://schemas.android.com/tools">
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <ScrollView
+            android:id="@+id/scrollView3"
             android:layout_width="0dp"
             android:layout_height="222dp"
             android:layout_marginStart="16dp"
@@ -118,11 +119,6 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--<TextView-->
-                <!--android:id="@+id/textView8"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:text="@string/bio" />-->
 
                 <EditText
                     android:id="@+id/editText"
@@ -130,9 +126,23 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="@{myfileTrackerViewModel.database.newprofile.howaboutEdit}" />
             </LinearLayout>
         </ScrollView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="40dp"
+            android:onClick="@{() -> myfileTrackerViewModel.onSaveTracking()}"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

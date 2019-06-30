@@ -10,12 +10,12 @@ data class MyProfile(
         @PrimaryKey(autoGenerate = true)
         var profileId: Long = 0L,
 
-        @ColumnInfo(name = "start_time_milli")
-        val startTimeMilli: Long = System.currentTimeMillis(),
+        @ColumnInfo(name = "name_edit")
+        var nameEdit: String?,
 
-        @ColumnInfo(name = "end_time_milli")
-        var endTimeMilli: Long = startTimeMilli,
+        @ColumnInfo(name = "nickname_edit")
+        var nicknameEdit: String?,
 
-        @ColumnInfo(name = "quality_rating")
-        var sleepQuality: Int = -1
+        @ColumnInfo(name = "how_about_me_edit")
+        var howaboutEdit: String?
 )

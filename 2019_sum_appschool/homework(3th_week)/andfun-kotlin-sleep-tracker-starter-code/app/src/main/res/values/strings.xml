@@ -20,6 +20,7 @@
     <string name="app_name">Track My Sleep Quality</string>
     <string name="sleep_tracker_fragment">SleepTrackerFragment</string>
     <string name="sleep_quality_fragment">SleepQualityFragment</string>
+    <string name="myfile_tracker_fragment">MyfileTrackerFragment</string>
 
     <!-- Button labels -->
     <string name="start">Start</string>
@@ -71,4 +72,5 @@
         \n I feel very meaningful and want to introduce it to everyone.
         \n I am very much sympathetic to many of the things that are said inside.
     </string>
+    <string name="save">SAVE</string>
 </resources>

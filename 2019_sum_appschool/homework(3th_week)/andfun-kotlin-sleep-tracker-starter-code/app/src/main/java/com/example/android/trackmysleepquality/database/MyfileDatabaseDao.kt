@@ -51,6 +51,6 @@ interface MyfileDatabaseDao {
      * Selects and returns the latest night.
      */
     @Query("SELECT * FROM my_profile_table ORDER BY profileId DESC LIMIT 1")
-    fun getNowprofile(): MyProfile?
+    fun getNewprofile(): MyProfile?
 
 }

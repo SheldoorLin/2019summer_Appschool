@@ -21,7 +21,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/sleep_tracker_fragment">
+    app:startDestination="@id/myfileTrackerFragment">
 
     <fragment
         android:id="@+id/sleep_tracker_fragment"
@@ -53,6 +53,6 @@
     <fragment
         android:id="@+id/myfileTrackerFragment"
         android:name="com.example.android.trackmysleepquality.profiletraker.MyfileTrackerFragment"
-        android:label="MyfileTrackerFragment" />
+        android:label="@string/myfile_tracker_fragment" />
 
 </navigation>
