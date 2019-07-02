@@ -62,10 +62,10 @@ class MyfileTrackerViewModel(
             Log.i("save button", newProfile.nameEdit)
             Log.i("save button", newProfile.nicknameEdit)
 //            thisprofile.value = getNowprofilefromDatabase()
-//            update(newProfile)
-//            Log.i("save button", newProfile.howaboutEdit.toString())
-//            Log.i("save button", newProfile.nameEdit.toString())
-//            Log.i("save button", newProfile.nicknameEdit.toString())
+            update(newProfile)
+            Log.i("save button", newProfile.howaboutEdit.toString())
+            Log.i("save button", newProfile.nameEdit.toString())
+            Log.i("save button", newProfile.nicknameEdit.toString())
 //            thisprofile.value =getNowprofilefromDatabase()
         }
     }
