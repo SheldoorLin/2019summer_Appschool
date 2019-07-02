@@ -58,14 +58,12 @@ class MyfileTrackerViewModel(
         uiScope.launch {
             val newProfile = MyProfile(howaboutEdit = "123", nameEdit = "456", nicknameEdit = "789")
             insert(newProfile)
-            Log.i("save button", newProfile.howaboutEdit)
-            Log.i("save button", newProfile.nameEdit)
-            Log.i("save button", newProfile.nicknameEdit)
+
 //            thisprofile.value = getNowprofilefromDatabase()
             update(newProfile)
-            Log.i("save button", newProfile.howaboutEdit.toString())
-            Log.i("save button", newProfile.nameEdit.toString())
-            Log.i("save button", newProfile.nicknameEdit.toString())
+//            Log.i("save button", newProfile.howaboutEdit.toString())
+//            Log.i("save button", newProfile.nameEdit.toString())
+//            Log.i("save button", newProfile.nicknameEdit.toString())
 //            thisprofile.value =getNowprofilefromDatabase()
         }
     }
@@ -73,14 +71,17 @@ class MyfileTrackerViewModel(
     private suspend fun insert(profile: MyProfile) {
         withContext(Dispatchers.IO) {
             database.insert(profile)
+            Log.i("save button", database.get(key = 1).toString())
+
         }
     }
 
 
 
-    private suspend fun update(profile: MyProfile) {
+    private suspend fun update(profile : MyProfile) {
         withContext(Dispatchers.IO) {
             database.update(profile)
+            Log.i("save button", database.get(key = 30).toString())
         }
     }
 }
