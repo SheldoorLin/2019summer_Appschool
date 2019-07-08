@@ -45,6 +45,14 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
             // which allows the RecyclerView to make the correct view size measurements
             binding.executePendingBindings()
         }
+        companion object {
+            fun from(parent: ViewGroup): MarsPropertyViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = GridViewItemBinding.inflate(layoutInflater, parent, false)
+
+                return MarsPropertyViewHolder(binding)
+            }
+        }
     }
 
     /**
@@ -66,7 +74,7 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
      */
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return MarsPropertyViewHolder.from(parent)
     }
 
     /**
