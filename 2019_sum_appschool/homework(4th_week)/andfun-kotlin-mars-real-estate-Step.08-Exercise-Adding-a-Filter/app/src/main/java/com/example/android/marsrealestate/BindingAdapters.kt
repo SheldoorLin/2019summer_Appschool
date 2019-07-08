@@ -35,7 +35,7 @@ import com.example.android.marsrealestate.overview.PhotoGridAdapter
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
-    adapter.submitList(data)
+    adapter.addHeaderAndSubmitList(data)
 }
 
 /**
@@ -73,6 +73,31 @@ fun bindStatus(statusImageView: ImageView, status: MarsApiStatus?) {
         }
         MarsApiStatus.DONE -> {
             statusImageView.visibility = View.GONE
+        }
+    }
+}
+@BindingAdapter("propertyPrice")
+fun setPropertyPrice(propertyTextView: TextView, item: MarsProperty?) {
+    val priceValue = item?.price?.toLong()
+    val price: String
+    when (item?.isRental) {
+        true -> { price = "$" + priceValue.toString() + "/month"
+            propertyTextView.text = price
+        }
+        false ->{
+            price = "$" + priceValue.toString()
+            propertyTextView.text = price
+        }
+    }
+}
+@BindingAdapter("propertyType")
+fun setPropertyType(propertyTextView: TextView, item: MarsProperty?) {
+    when (item?.isRental) {
+        true -> {
+            propertyTextView.setText(R.string.for_rent)
+        }
+        false -> {
+            propertyTextView.setText(R.string.for_sale)
         }
     }
 }
